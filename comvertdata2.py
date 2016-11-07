@@ -19,10 +19,10 @@ def databary(f1, f2, bary, count):
         if 0.05 < (float(row2[6]) - float(judge[6])):
             bary.extend([1,1])
         else:
-            bary.extend([0,1])
+            bary.extend([1,0])
     else:
         if 0.05 < (float(row2[6]) - float(judge[6])):
-            bary.extend([1,0])
+            bary.extend([0,1])
         else:
             bary.extend([0,0])
             
@@ -48,6 +48,7 @@ def databary(f1, f2, bary, count):
                             bary.extend([0,0])
                             print "F,F"
     return count
+
 def printdata(a):
     print a
                             
