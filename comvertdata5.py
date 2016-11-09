@@ -83,18 +83,19 @@ for date in range(0,30):
         data3_num = check_company(com_name[num], data3)
         
         if data2_num != -1 and data3_num != -1:
-            print num, "true"
+            #print num, "true"
             if (float(data3[data3_num][1]) - float(data2[data2_num][1])) > 0:
                 bary.append(1)
             else:
                 bary.append(0)
         else:
-            print num, "false"
+            #print num, "false"
             bary.append(0)
             
         if data1_num != -1:
-            if 0.05 < (float(data1[data1_num][1]) - float(data2[data2_num][1])/float(data2[data2_num][1])):
+            if 0.05 < ((float(data1[data1_num][1]) - float(data2[data2_num][1]))/float(data2[data2_num][1])):
                 bary.append(1)
+                print (float(data1[data1_num][1]) - float(data2[data2_num][1]))/float(data2[data2_num][1])
             else:
                 bary.append(0)
         else:
