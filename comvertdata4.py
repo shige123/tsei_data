@@ -43,7 +43,7 @@ print fname3
 
 bary = bytearray(['t','s','e','i'])
 bary.extend([0x7,0xC2])
-bary.extend([0,1])
+bary.extend([0,0x1E])
 
 for date in range(0,30):
     f1 = open(fname1,"rb")
@@ -62,15 +62,15 @@ for date in range(0,30):
     row2 = next(reader2)
     row3 = next(reader3)
     
-    for num in range(0,count-1):
+    for num in range(0,count):
         if com_name[num] == row3[0] and com_name[num] == row2[0]:
-            print "true"
+            print num, "true"
             if (float(row3[1]) - float(row2[1])) > 0:
                 bary.append(1)
             else:
                 bary.append(0)
         else:
-            print "false"
+            print num, "false"
             bary.append(0)
             
         if com_name[num] == row1[0]:
@@ -80,16 +80,16 @@ for date in range(0,30):
                 bary.extend(0)
         else:
             bary.append(0)
-                
-        if com_name[num] == row1[0]:
-            row1 = next(reader1)
-           # print "T"
-       # else:
-           # print "N"
-        if com_name[num] == row2[0]:
-            row2 = next(reader2)
-        if com_name[num] == row3[0]:
-            row3 = next(reader3)
+        if num != count-1:        
+            if com_name[num] == row1[0]:
+                row1 = next(reader1)
+                print "T"
+            else:
+                print "N"
+            if com_name[num] == row2[0]:
+                row2 = next(reader2)
+            if com_name[num] == row3[0]:
+                row3 = next(reader3)
     f1.close()
     f2.close()
     f3.close()
